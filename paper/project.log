@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.6.18)  3 APR 2014 20:12
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.6.18)  4 APR 2014 12:38
 entering extended mode
  %&-line parsing enabled.
 **project.tex
@@ -349,34 +349,34 @@ File: notSetMinEgFinal.png Graphic file (type png)
 <notSetMinEgOther.png, id=25, 843.15pt x 407.5225pt>
 File: notSetMinEgOther.png Graphic file (type png)
 
-<use notSetMinEgOther.png>) (./project.bbl
-
-Package balance Warning: You have called \balance in second column
-(balance)                Columns might not be balanced.
-
-[3 <./cardinalityEg.png>]
-Overfull \vbox (8.42148pt too high) has occurred while \output is active []
+<use notSetMinEgOther.png> [3 <./cardinalityEg.png>]
+Overfull \hbox (4.01434pt too wide) in paragraph at lines 183--185
+\OT1/cmr/m/n/9 sec-ond re-pair shown in Ta-ble 1[], which is ctu-ally a Cardina
+lity-
+ []
 
 
-[4 <./eg4.png (PNG copy)> <./notSetMinEg.png (PNG copy)> <./notSetMinEgFinal.pn
-g (PNG copy)> <./notSetMinEgOther.png (PNG copy)>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [4 <./eg4.png (PNG copy)> <./notSetMinEg.png (PNG copy)> <./notSetMinEgFinal.p
+ng (PNG copy)> <./notSetMinEgOther.png (PNG copy)>]
+<ch.png, id=33, 888.49588pt x 654.68118pt>
+File: ch.png Graphic file (type png)
+ <use ch.png>) (./project.bbl
 Missing character: There is no â in font cmti9!
 Missing character: There is no € in font cmti9!
 Missing character: There is no ” in font cmti9!
 )
-Overfull \vbox (0.375pt too high) has occurred while \output is active []
-
- [5]
-(./project.aux)
+[5 <./ch.png (PNG copy)>] (./project.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 2539 strings out of 493848
- 31178 string characters out of 1152823
- 104895 words of memory out of 3000000
- 5762 multiletter control sequences out of 15000+50000
+ 2545 strings out of 493848
+ 31235 string characters out of 1152823
+ 106895 words of memory out of 3000000
+ 5767 multiletter control sequences out of 15000+50000
  23038 words of font info for 54 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
  39i,12n,26p,653b,244s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -391,9 +391,9 @@ exmf-texlive/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texmf-texlive
 /public/amsfonts/cm/cmti9.pfb></usr/share/texmf-texlive/fonts/type1/urw/helveti
 c/uhvb8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/helvetic/uhvr8a.pfb></us
 r/share/texmf-texlive/fonts/type1/urw/times/utmb8a.pfb>
-Output written on project.pdf (5 pages, 325075 bytes).
+Output written on project.pdf (5 pages, 370479 bytes).
 PDF statistics:
- 74 PDF objects out of 1000 (max. 8388607)
+ 75 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

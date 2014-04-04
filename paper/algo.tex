@@ -143,3 +143,56 @@ This proves that the holistic data cleaning algorithm can generate repairs which
 %\caption{Sample Data.}
 %\end{table}
 %
+
+\subsection{Algorithm Overview}
+The algorithm we propose is inspired from the holistic data cleaning algorithm of \cite{XuChu}, with two major modifications.
+One, we have introduced a randomness in selecting an hyperedge and a cell in an hyperedge, where as \cite{XuChu} used minimum vertex cover to select cells to start the repair.
+Second, we have put constraints on which cells can be included in the frontier set. [MIGHT CHANGE -----]
+
+We represent the violations in the database instance using hyperedges, similar to \cite{XuChu,Kolahi}.
+After all the violations have been detected we get a set of hyperedges, and the graph induced by them is called a \textit{Conflict Hypergraph (CH)}.
+It is an undirected hypergraph with a set of nodes P representing the cells and a set of annotated hyperedges E representing the relationships among cells violating a constraint.
+More precisely, a \textit{hyperedge} is a set of violating cells from which one of them must change to repair the constraint, and contains: 
+(a) the constraint $c$, which induced the conflict on the cells; (b) the list of nodes involved in the conflict.
+
+Consider the example database instance given in Table \ref{tab:eg1} and the following set of DCs $\{ A \rightarrow C, B \rightarrow C, R[D=5] \rightarrow R[C=5], C \geq D \}$.
+Figure \ref{fig:ch} represents a conflict hypergraph of the present state of the database violations w.r.t the given DCs.
+Each hyperedge in the graph contains only the violating cells, and in order to repair it, at least one of its cells must get a new value.
+We start our algorithm by picking an hyperedge at random and a random cell within that edge.
+Algorithm assumes that this cell needs to be changed and hence identify all the other cells that are involved in the repair of this cell.
+This starting set of newly identified cells is called \textit{frontier}.
+We call \textit{repair expressions} the list of constant assignments and constraints among the frontier.
+Similar to \cite{XuChu}, the frontier and the repair expressions form a \textit{Repair Context} (RC).
+Once we are done with the repair context of the first chosen cell, we \textit{freeze} all the edges which got repaired using that RC.
+By freeze, we mean that the cells belonging to those edges, if encountered in the frontier of any other RC later, cannot be changed.
+If there are more edges remaining in the hypergraph, our algorithm again chooses a remaining hyperedge at random and chooses a non freezed cell from that edge,
+and forms the RC for this new cell in the similar fashion.
+The algorithm continues till there are no more hyperedges left in the graph.
+
+For example, consider the DCs and hypergraph in Figure \ref{fig:ch}.
+Lets say, the algorithm starts by choosing Edge $e4$ and cell $t_4[D]$.
+The repair expression for this is simple, i.e. $t_4[D] \leq 3$, so we will assign it to a fresh value, call it $FV$ and cell $t_4[C]$ will be freezed.
+Then we move onto choose the next edge, say this time we chose edge $e2$ and cell $t_2[C]$.
+If we have to change $t_2[C]$ then the cell $t_3[C]$ in edge $e2$ should be changed, this gives us the expression $t_2[C] = t_3[C]$.
+Cell $t_2[C]$ is related to edges $e1$ as well, and we get the expression $t_2[C] = t_1[C]$.
+Cell $t_2[C]$ is related to edges $e4$ as well, and we get the expression $t_2[C] = t_4[C] = 3$, remember that cell $t_4[C]$ is frozen and cannot be changed.
+The cell $t_1[C]$ is in edge $e5$ as well, hence the relation for cell $t_1[C]$ will be $t_1[C] \geq 3$.
+Therefore the overall repair expression becomes $t_2[C] = t_1[C], t_2[C] = t_3[C], t_2[C] = t_4[C], t_4[C] = 3 and t_1[C] \geq 3$.
+The cells and their new values will be: $t_2[C] = 3, t_1[C] = 3$ and $t_4[D] = FV$.
+
+Notice that, the repair we obtained above is same as the second repair shown in Table \ref{tab:eg2}, which is ctually a Cardinality-Minimal repair.
+This indicates that the randomized selection of cells is capable of generating Cardinality-Minimal repairs also.
+
+\textbf{Proposition:} Randomized selection of cells gaurantee to cover Cardinality-Minimal repairs also. \\
+\textit{Proof Sketch:} There are exponential possible repair expression in a CH depending upon the cells we start with.
+Also, each repair expression has different satisfiability with different cardinality.
+By using random selection we are allowing all the possible repair expressions, some of which will be Cardinality-Minimal.
+
+
+\begin{figure}
+   \centering
+   \includegraphics[scale=0.25]{ch.png}
+   \caption{Conflict hypergraph.}
+   \label{fig:ch}
+\end{figure}
+
