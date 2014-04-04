@@ -1,0 +1,117 @@
+\begin{thebibliography}{10}
+
+\bibitem{Arenas}
+M.~Arenas, L.~Bertossi, and J.~Chomicki.
+\newblock Consistent query answers in inconsistent databases.
+\newblock In {\em Proceedings of the Eighteenth ACM SIGMOD-SIGACT-SIGART
+  Symposium on Principles of Database Systems}, PODS '99, pages 68--79, New
+  York, NY, USA, 1999. ACM.
+
+\bibitem{Bertossi}
+L.~Bertossi, L.~Bravo, E.~Franconi, and A.~Lopatenko.
+\newblock Complexity and approximation of fixing numerical attributes in
+  databases under integrity constraints.
+\newblock In G.~Bierman and C.~Koch, editors, {\em Database Programming
+  Languages}, volume 3774 of {\em Lecture Notes in Computer Science}, pages
+  262--278. Springer Berlin Heidelberg, 2005.
+
+\bibitem{Beskales_sampling}
+G.~Beskales, I.~F. Ilyas, and L.~Golab.
+\newblock Sampling the repairs of functional dependency violations under hard
+  constraints.
+
+\bibitem{Beskales_journal}
+G.~Beskales, I.~F. Ilyas, L.~Golab, and A.~Galiullin.
+\newblock Sampling from repairs of conditional functional dependency
+  violations.
+\newblock {\em The VLDB Journal}, 23(1):103--128, Feb. 2014.
+
+\bibitem{Bohannon}
+P.~Bohannon, W.~Fan, M.~Flaster, and R.~Rastogi.
+\newblock A cost-based model and effective heuristic for repairing constraints
+  by value modification.
+\newblock In {\em Proceedings of the 2005 ACM SIGMOD International Conference
+  on Management of Data}, SIGMOD '05, pages 143--154, New York, NY, USA, 2005.
+  ACM.
+
+\bibitem{Chiang}
+F.~Chiang and R.~J. Miller.
+\newblock Discovering data quality rules.
+\newblock {\em Proc. VLDB Endow.}, 1(1):1166--1177, Aug. 2008.
+
+\bibitem{Chomicki}
+J.~Chomicki, J.~Marcinkowski, and S.~Staworko.
+\newblock Computing consistent query answers using conflict hypergraphs.
+\newblock In {\em Proceedings of the Thirteenth ACM International Conference on
+  Information and Knowledge Management}, CIKM '04, pages 417--426, New York,
+  NY, USA, 2004. ACM.
+
+\bibitem{XuChu}
+X.~Chu, I.~Ilyas, and P.~Papotti.
+\newblock Holistic data cleaning: Putting violations into context.
+\newblock In {\em Data Engineering (ICDE), 2013 IEEE 29th International
+  Conference on}, pages 458--469, April 2013.
+
+\bibitem{XuChuDC}
+X.~Chu, I.~F. Ilyas, and P.~Papotti.
+\newblock Discovering denial constraints.
+\newblock {\em Proc. VLDB Endow.}, 6(13):1498--1509, Aug. 2013.
+
+\bibitem{Cong}
+G.~Cong, W.~Fan, F.~Geerts, X.~Jia, and S.~Ma.
+\newblock Improving data quality: Consistency and accuracy.
+\newblock In {\em Proceedings of the 33rd International Conference on Very
+  Large Data Bases}, VLDB '07, pages 315--326. VLDB Endowment, 2007.
+
+\bibitem{TDWI02}
+W.~Eckerson.
+\newblock {Data Quality and the Bottom Line: Achieving Business Success through
+  a Commitment to High Quality Data}.
+\newblock Technical report, The Data Warehousing Institute, 2002.
+
+\bibitem{Fan}
+W.~Fan, J.~Li, S.~Ma, N.~Tang, and W.~Yu.
+\newblock Interaction between record matching and data repairing.
+\newblock In {\em Proceedings of the 2011 ACM SIGMOD International Conference
+  on Management of Data}, SIGMOD '11, pages 469--480, New York, NY, USA, 2011.
+  ACM.
+
+\bibitem{Fuxman}
+A.~Fuxman and R.~J. Miller.
+\newblock First-order query rewriting for inconsistent databases.
+\newblock {\em J. Comput. Syst. Sci.}, 73(4):610--635, June 2007.
+
+\bibitem{Greco}
+S.~Greco and C.~Molinaro.
+\newblock Probabilistic query answering over inconsistent databases.
+\newblock {\em Annals of Mathematics and Artificial Intelligence},
+  64(2-3):185--207, Mar. 2012.
+
+\bibitem{Jampani}
+R.~Jampani, F.~Xu, M.~Wu, L.~L. Perez, C.~Jermaine, and P.~J. Haas.
+\newblock Mcdb: A monte carlo approach to managing uncertain data.
+\newblock In {\em Proceedings of the 2008 ACM SIGMOD International Conference
+  on Management of Data}, SIGMOD '08, pages 687--700, New York, NY, USA, 2008.
+  ACM.
+
+\bibitem{Kolahi}
+S.~Kolahi and L.~V.~S. Lakshmanan.
+\newblock On approximating optimum repairs for functional dependency
+  violations.
+\newblock In {\em Proceedings of the 12th International Conference on Database
+  Theory}, ICDT '09, pages 53--62, New York, NY, USA, 2009. ACM.
+
+\bibitem{Redman}
+T.~C. Redman.
+\newblock The impact of poor data quality on the typical enterprise.
+\newblock {\em Commun. ACM}, 41(2):79--82, Feb. 1998.
+
+\bibitem{Wijsen}
+J.~Wijsen.
+\newblock Condensed representation of database repairs for consistent query
+  answering.
+\newblock In D.~Calvanese, M.~Lenzerini, and R.~Motwani, editors, {\em Database
+  Theory — ICDT 2003}, volume 2572 of {\em Lecture Notes in Computer
+  Science}, pages 378--393. Springer Berlin Heidelberg, 2003.
+
+\end{thebibliography}
