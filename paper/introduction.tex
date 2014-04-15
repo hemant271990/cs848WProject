@@ -1,6 +1,6 @@
-It has been observed that data stored in the database is not always trustworthy \cite{Redman}.
+It has been observed that data stored in databases is not always trustworthy \cite{Redman}.
 Data quality experts estimate that as much as 10\% to 20\% of the total system implementation budget of a company can be wasted due to the dirty tuples in the database.
-To some US businesses it has costed 600 billion dollars each year \cite{TDWI02}.
+To some US businesses it costs 600 billion dollars each year \cite{TDWI02}.
 With the increasing scale of data, the problem of maintaining data quality is becoming more challenging: 
 with more number of sources, data integration becomes a weak point and can potentially introduce duplicate values, integrity constraint violating tuples and missing values.
 Therefore, to maintain an state-of-the-art data warehouse it becomes essential to come up with a data cleaning system.
@@ -14,7 +14,7 @@ Denial constraints are same as universally quantified first order logic forms, a
 like "\textit{greater-than}" or "\textit"{not-equal-to}" also, including FDs and CFDs.
 Most of the previous data cleaning algorithms \cite{Cong,Fan,Kolahi} considered the integrity constraints in isolation while generating the repairs.
 Later work by Xu et. al.\cite{XuChu} proposed a holistic data cleaning approach, that is capable of repairing all violations together using a single objective function.
-Consider the example database instance given in Table \ref{tab:eg1} and the following Constraints:
+Consider the example database instance given in Table \ref{table:eg1} and the following Constraints:
 
 \begin{enumerate}
 \item[c1] : $ \neg(t_i.A = t_j.A \wedge t_i.C \neq t_j.C)$
@@ -24,11 +24,12 @@ Consider the example database instance given in Table \ref{tab:eg1} and the foll
 \end{enumerate}
 
 A holistic data cleaning approach can generate the following repair:
-$t_1.C = t_2.C = t_3.C = t_4.C = 5$.
+$t_1.C = t_2.C = t_3.C = t_4.C = 5$, also shown in Table \ref{table:eg2}.
 However, there exist numerous possible repairs for one instance of unclean database.
-For example, Table \ref{tab:eg2} shows two possible repairs of data instance in Table \ref{tab:eg1}.
+For example, Table \ref{table:eg2} shows two possible repairs of data instance in Table \ref{table:eg1}.
 A cell with value "V" can be modified to several values in order to satisfy the DC.
-\begin{table} \label{tab:eg1}
+
+\begin{table} 
 \centering 
 \begin{tabular}{|c|c|c|c|c|}  \hline
       & A & B & C & D 	\\ \hline
@@ -38,9 +39,10 @@ A cell with value "V" can be modified to several values in order to satisfy the 
    $t_4$ & 3 & 1 & 3 & 5 	\\ \hline
 \end{tabular}
 \caption{Sample Data.}
+\label{table:eg1}
 \end{table}
 
-\begin{table} \label{tab:eg2}
+\begin{table} 
 \centering 
 \begin{tabular}{|c|c|c|c|c|}  \hline
       & A & B & C & D 	\\ \hline
@@ -58,19 +60,20 @@ A cell with value "V" can be modified to several values in order to satisfy the 
    $t_4$ & 3 & 1 & 3 & \cellcolor[gray]{0.9} $V \leq 3$ 	\\ \hline
 \end{tabular}
 \caption{Two possible repairs.}
+\label{table:eg2}
 \end{table}
 
-In this paper, we present an approach to data repair, that is capable of generating various possible repairs from a defined set of reapir space.
+In this paper, we present an approach to data repair, that is capable of generating various possible repairs from a defined set of repair space.
 One should note that number of possible repairs are exponential for a given number of cells in the data instance.
 Some "unnecessary" cells can be changed which do not take part in the violation and can still be a candidate repair.
-For example, in the repairs in Table \ref{tab:eg2} also change cell $t_4.A$ to 4, and it will be valid repair.
-The main challenge while generating a sample repair from the space of possible repair is to generate meaningfull repairs, repairs which do not involve "unnecessary" changes.
-We will now show some examples which motivate the approach of sampling from a suitable set of repairs, described in this paper.
+For example, in the repairs shown in Table \ref{table:eg2} one can also change cell $t_4.A$ to 4, and it will be valid repair.
+The main challenge while generating a sample repair from the space of possible repairs is to generate meaningfull repairs, repairs which do not involve "unnecessary" changes.
+We will now show some examples which motivate the approach of sampling from a suitable set of repairs.
 
 \subsection{Motivating Examples}
 The previous data repair approaches can be majorly categorized into frameworks.
-One, stems on the idea of generating single, near-optimal repair, in term sof number of deletions or attribute modifications \cite{Kolahi} \cite{Bohannon}.
-For example, second repair in Table \ref{tab:eg2} will be optimal as it has fewer changes.
+One, stems on the idea of generating single, near-optimal repair, in terms of number of deletions or attribute modifications \cite{Kolahi} \cite{Bohannon}.
+For example, second repair in Table \ref{table:eg2} will be optimal as it has fewer changes.
 Second approach is of consistent query answering, that computes answers to a selected classes of queries that seems to be valid in every suitable repair \cite{Arenas,Chomicki,Fuxman,Wijsen}.
 
 The following examples show that the existing approaches are not suitable for them, and hence motivates a sampling approach described in the paper \cite{Beskales_sampling}:
@@ -79,22 +82,22 @@ The following examples show that the existing approaches are not suitable for th
 
 \textit{Interactive Data Cleaning} - An interactive data repair is a process where a sequence of repairs are suggested to the user as a guide.
 User may change some values according to one suggestion and demands more suggestions for other unclean attributes.
-For example, a user may repair tuple $t_4$ according to repair 1 in Table \ref{tab:eg2} and tuple $t_2$ according to repair 2.
+For example, a user may repair tuple $t_4$ according to repair 1 in Table \ref{table:eg2} and tuple $t_2$ according to repair 2.
 Therefore, the application requires several suggested repairs from a suitable space of repairs.
 Hence, generating a single repair will not help in this case, 
-A consistent query approach also will not work here because, an interactive approach is not associated with a particular query.
+A consistent query approach will also not work here because, an interactive approach is not associated with a particular query.
 
 \medskip
 
 \textit{Data Integration} - Data integration is another scenario where user-defined constraints are required to control the data modification during integration process.
 Data expert often have a prior knowledge about the sanity of the data resources and can dictate rules to trust some sources over others.
-Although previous approaches \cite{Bohannon,Kolahi} assign weight to the sources depending upon their trustworthiness and penalize changing a trusted data source.
+Although previous approaches \cite{Bohannon,Kolahi} assign weights to the sources depending upon their trustworthiness and penalize changing a trusted data source.
 They still cannot totally prevent the modification of trusted data.
 
 \medskip
 
 \textit{Uncertain Query Answering} - The notion of consistent query answering can be generalized to probabilistic query answering.
-Problem of generating all repairs is intractable, but a meaningful subset of possible can repairs can still be computed and will be sufficient to allow probabilistic query answering.
+Problem of generating all repairs is intractable, but a meaningful subset of possible repairs can still be computed and will be sufficient to allow probabilistic query answering.
 Again, computing a single repair or a consistent query answer is not sufficient for this application.
 The Monte Carlo Database (MCDB) \cite{Jampani} is one such example.
 
@@ -108,11 +111,11 @@ A meaningful repair is one which involves minimal number of changes with respect
 The task of finding a repair with minimal changes for DCs and numerical values only is known to be \textit{MaxSNP}-hard problem \cite{Bertossi}.
 Therefore, an approximation algorithm is needed which can compute nearly-optimal repairs within a sufficiently large subset of repairs.
 
-\item The present holistic data cleaning approach presented in \cite{XuChu} uses a minimum vertex cover idea which is capable of generating nearly-optimal repairs, but does not gaurantee to cover all the cardinality-minimal-repairs \cite{Beskales_sampling}.
-Consider the data instance given in Table \ref{tab:eg1}, the holistic data cleaning approach uses minimum vertex cover and finds out $t_1.C = t_2.C = t_3.C = t_4.C = 5$ as the solution, but repair 2 in Table \ref{tab:eg2} shows that a there exist a repair which has fewer number of changes.
+\item The present holistic data cleaning approach presented in \cite{XuChu} uses a minimum vertex cover idea which is capable of generating nearly-optimal repairs, but does not guarantee to cover all the cardinality-minimal-repairs \cite{Beskales_sampling}.
+Consider the data instance given in Table \ref{table:eg1}, the holistic data cleaning approach uses minimum vertex cover and finds out $t_1.C = t_2.C = t_3.C = t_4.C = 5$ as the solution, but repair 2 in Table \ref{table:eg2} shows that a there exist a repair which has fewer number of changes.
 Hence, holistic approach can miss out some cardinality-minimal repairs.
 
-\item The previous work on sampling repairs \cite{Beskales_sampling} consider FDs and CFDs.
+\item The previous work on sampling repairs \cite{Beskales_sampling} considered FDs and CFDs.
 The idea of building equivalence classes is not possible for DCs, because DCs are more expressive and for predicates like "\textit{greater-than}" and "\textit{less-than}" equivalence classes cannot be defined.
 \end{itemize}
 
@@ -122,6 +125,14 @@ Our main contribution in this paper are:
 \begin{itemize}
 \item We first show that the minimality definitions defined in \cite{Beskales_journal} also makes sense with respect to Denial-Constraints.
 For a given Instance $I$ and a set $\sum$ of DCs, the space of possible repairs can be divided into Set-Minimal, Cardinality-Set-Minimal and Cardinality-Minimal repairs.
-\item We prove that the holistic data cleaning approach described in \cite{XuChu} does not gaurantee to generate Cardinality-Minimal repair and can also generate repairs which are Not-Set-Minimal.
-\item We give an efficient algorithm tha can 
+\item We prove that the holistic data cleaning approach described in \cite{XuChu} does not guarantee to generate Cardinality-Minimal repair and can also generate repairs which are Not-Set-Minimal.
+\item We give an algorithm based on randomized selection of cells as compared to Minimum-vertex-cover selection in \cite{XuChu}.
+We prove that our algorithm is capable of generating repairs from Cardinality-Minimal space and also, it restricts all the sample repairs to be within the Set-Minimal space.
 \end{itemize}
+
+The remainder of the paper is organized as follows.
+In Section \ref{sec:notations} we describe the notations used in the paper.
+In Section \ref{sec:overview} we reason out why previous approaches do not fit for our task and also provide an overview of our algorithm with help of an example.
+In Section \ref{sec:algo} we provide a sketch of our algorithm along with the details.
+A short experimental study is provided in Section \ref{sec:experiments}.
+We provide the related work in Section \ref{sec:background} and conclude with some ideas for future work in Section \ref{sec:conc}.

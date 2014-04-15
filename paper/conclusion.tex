@@ -1,0 +1,11 @@
+In this paper we extended the idea of generating a sample of repairs for a varied set of constraints which are expressed using Denial Constraints.
+We motivated the need of multiple repairs rather than a single optimal repair.
+The challenge in generating a set of repairs is to filter the reasonable set of repairs out of the exponential space of all the possible repairs.
+We saw that the existing algorithms for generating samples from FDs and CFDs can not be extended to DCs and the holistic data repair approach is not capable of generating repairs within a reasonable space of possible repairs.
+Therefore, we proposed a constrained randomized algorithm that generates repairs that are within the space of Set-Minimal repairs.
+Our algorithm relies on a one step look ahead to restrict the sampling space to Set-Minimal repairs, 
+as an important direction for future work we would like to come up with a more robust algorithm that can help us define the space of possible repairs.
+We will also consider to come up with an approach that can define the sensitivity of the cells depending upon the violations it can potentially cause, and select the less sensitive cells.
+A threshold can determine what cells to choose, and that will indirectly determine the space of our sample repairs.
+One drawback in the existing algorithm is that, in the scenario when all the cells of an hyperedge causes a new violation then the algorithm cannot generate any solution.
+Whereas if we know the sensitivity of the cells, we can select a less sensitive cell and continue our algorithm with some defined probability of getting a not-set-minimal repair.

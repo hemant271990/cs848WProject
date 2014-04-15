@@ -1,0 +1,20 @@
+One of the most popular approach of obtaining the repair in the context of FDs and DCs has been to obtain a single most optimal repair possible \cite{Kolahi,XuChu}.
+Both of these work aimed at either minimizing the number of changes or the distance of the repair with the original database.
+The main drawback of single-repair approaches is that there is usually no unique optimal repair.
+Work done by George et. al. \cite{Beskales_sampling} solve this problem by generating a sample of possible repairs of the input instance in context of FDs.
+In this work we extend the same idea of sampling repairs in the context of more general set of integrity constraints defined using Denial Constraints.
+
+Approaches that provide consistent query answers perform query rewriting \cite{Arenas,Fuxman}, 
+or construct a condensed representation of all the repairs that allows obtaining consistent answers \cite{Wijsen}.
+Usually, a restricted class of queries can be answered efficiently while harder classes are answered using approximate methods (e.g., \cite{Lopatenko}).
+The approach of sampling repairs overcome shortcomings of consistent query answering such as returning empty query results when no common query answers are found.
+
+In \cite{Greco}, the authors have imposed strong constraint on the defined FDs that, any attribute that appears in the right-hand side of an FD cannot appear in the left-hand side of another FD.
+These limitations have allowed to get the cardinality-minimal repairs in PTIME.
+Our solution uses a more generic way of expressing constraints, we use denial constraints to express simple constraints like FDs and CFDs, 
+but it can also express constraints which have predicates like $<$, $>$ $\leq$, $\geq$ and $\neq$.
+
+A related topic to our work is answering queries over uncertain data.
+Several works have addressed the problem of modelling data uncertainty in a compact way to allow efficient query answering.
+One of the related works is the Monte-Carlo Database \cite{Jampani}, which allows answering user queries efficiently using a sample of possible realizations of a database by avoiding redundant computations.
+For example, query planning is performed only once for the entire set of possible repairs.

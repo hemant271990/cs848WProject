@@ -8,7 +8,9 @@
 \usepackage{graphicx}
 \usepackage{balance}  % for  \balance command ON LAST PAGE  (only there!)
 \usepackage{colortbl}
-%\usepackage{subfig}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
 
 \begin{document}
 
@@ -85,7 +87,14 @@
 \maketitle
 
 \begin{abstract}
-Write abstract here.
+Integrity constraint violations in databases have become a major problem, primarily caused as a side affect of data integration or Web data extraction from varied sources.
+Resolving these violations is challenging for various reasons, primarily because of exponential number of possible repairs for a given violation.
+Some of the previous data cleaning approaches have tried to generate a single most optimal repair, or a set of possible repairs, but they focused on the violations caused by certain specific constraints like, functional dependencies, conditional functional dependencies, and matching dependencies.
+In this paper we extend the idea of generating multiple repairs for a general set of constraints defined in form of denial constraints.
+When we are generating multiple repairs for a violation, it is important to provide the repairs which have minimal number of changes. 
+Given that the problem of generating minimal repairs for denial constraint violations is MaxSNP-Hard, we propose a constrained randomized algorithm that is capable of generating sample repairs from a defined space of possible repairs.
+We have used the idea of repair expressions, used in holistic data cleaning of denial constraint violations.
+Our algorithm ensures two things: first, all the repairs for a single repair expression are minimal in some sense and second, it generates all possible repair expressions such that, their repairs avoid any new violations.
 \end{abstract}
 
 
@@ -95,8 +104,20 @@ Write abstract here.
 \section{Notation and definitions} \label{sec:notations}
 \input{notations}
 
-\section{Solution Overview} \label{sec:algo}
+\section{Solution Overview} \label{sec:overview}
+\input{overview}
+
+\section{Algorithm} \label{sec:algo}
 \input{algo}
+
+\section{Experimental Study} \label{sec:experiments}
+\input{experiments}
+\medskip
+\section{Related Work} \label{sec:background}
+\input{background}
+
+\section{Conclusion} \label{sec:conc}
+\input{conclusion}
 
 \balance
 
